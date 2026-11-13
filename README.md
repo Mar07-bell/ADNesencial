@@ -1,2 +1,2 @@
 # ADNesencial
-Platafroma digital que organiza de manera inteligente las combinaxciones de tu armario para la creación de conjuntos, atuendos "pinta" que vaya acorde a sus necesidades y gustos
+Platafroma digital que organiza de manera inteligente las combinaciones de tu armario para la creación de conjuntos, atuendos, pintas que vayan acorde a sus necesidades, gustos y closet.
