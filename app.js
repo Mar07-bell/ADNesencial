@@ -147,3 +147,90 @@ document.getElementById("form-contacto").addEventListener("submit", function(e) 
   document.getElementById("form-contacto").reset();
   document.getElementById("alerta-guardado").classList.remove("hidden");
 });
+
+function abrirAdmin() {
+  document.getElementById("modal-admin").classList.remove("hidden");
+}
+
+function cerrarAdmin() {
+  document.getElementById("modal-admin").classList.add("hidden");
+}
+
+document.getElementById("form-login-admin").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const user = document.getElementById("input-admin-user").value;
+  const pass = document.getElementById("input-admin-pass").value;
+
+  if (user === "admin" && pass === "1234") {
+    document.getElementById("login-admin").classList.add("hidden");
+    document.getElementById("dashboard-admin").classList.remove("hidden");
+    actualizarPanelAdmin();
+  } else {
+    alert("Datos incorrectos. Usa usuario: admin y clave: 1234");
+  }
+});
+
+function cerrarSesionAdmin() {
+  document.getElementById("login-admin").classList.remove("hidden");
+  document.getElementById("dashboard-admin").classList.add("hidden");
+}
+
+function actualizarPanelAdmin() {
+  const listaProd = document.getElementById("lista-admin-productos");
+  listaProd.innerHTML = "";
+
+  for (let i = 0; i < productos.length; i++) {
+    const p = productos[i];
+    listaProd.innerHTML += `
+      <div class="flex justify-between items-center p-2.5 bg-stone-50 border rounded">
+        <span><strong>${p.nombre}</strong> (${p.estilo}) — $${p.precio}</span>
+        <div class="space-x-1">
+          <button onclick="cargarParaEditar(${i})" class="text-xs bg-amber-100 text-amber-800 px-2.5 py-1 rounded font-bold">Editar</button>
+          <button onclick="borrarProducto(${i})" class="text-xs bg-red-100 text-red-700 px-2.5 py-1 rounded font-bold">Eliminar</button>
+        </div>
+      </div>
+    `;
+  }
+
+  const listaUsers = document.getElementById("lista-admin-usuarios");
+  listaUsers.innerHTML = "";
+
+  for (let i = 0; i < usuarios.length; i++) {
+    const u = usuarios[i];
+    listaUsers.innerHTML += `
+      <div class="p-3 bg-stone-50 border rounded text-xs flex justify-between items-start">
+        <div>
+          <p class="font-bold text-stone-800">${u.usuario} (${u.correo})</p>
+          <p>Estilo: <strong>${u.estilo_deseado}</strong> | Límite diario: ${u.limite_combinaciones_diarias}</p>
+          <p>Prendas: ${u.prendas_disponibles.join(", ")}</p>
+        </div>
+        <button onclick="borrarUsuario(${i})" class="bg-red-100 text-red-700 px-2 py-1 rounded font-bold">Borrar</button>
+      </div>
+    `;
+  }
+}
+
+document.getElementById("form-crud-producto").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const indice = document.getElementById("edit-indice").value;
+
+  const objetoPrenda = {
+    nombre: document.getElementById("p-nombre").value,
+    estilo: document.getElementById("p-estilo").value,
+    precio: Number(document.getElementById("p-precio").value),
+    descripcion: document.getElementById("p-desc").value,
+    imagen: "https://unsplash.com"
+  };
+
+  if (indice === "") {
+    productos.push(objetoPrenda);
+  } else {
+    objetoPrenda.imagen = productos[Number(indice)].imagen;
+    productos[Number(indice)] = objetoPrenda;
+  }
+
+  guardarDatos();
+  cancelarEdicion();
+  renderizarCatalogo("Todos");
+  actualizarPanelAdmin();
+});
