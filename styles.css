@@ -357,3 +357,11 @@ footer {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 }
+/* Color blanco para el texto del botón principal */
+#inicio a {
+  color: #ffffff;
+}
+
+#inicio a:last-child {
+  color: #334155;
+}
