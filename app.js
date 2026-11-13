@@ -80,3 +80,49 @@ function filtrarCatalogo(estilo) {
 function seleccionarParaContacto(nombrePrenda) {
   document.getElementById("c-prendas").value = "Me interesa combinar o adquirir: " + nombrePrenda;
 }
+
+document.getElementById("form-combinador").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const estilo = document.getElementById("ia-estilo").value;
+  const limite = Number(document.getElementById("ia-limite").value);
+  const texto = document.getElementById("ia-prendas").value;
+  const prendas = texto.split(",").map(function(p) { return p.trim(); }).filter(function(p) { return p !== ""; });
+
+  const caja = document.getElementById("resultados-ia");
+  caja.innerHTML = "";
+
+  if (prendas.length < 2) {
+    caja.innerHTML = `<p class="text-red-600 text-xs font-bold">Escribe al menos 2 prendas separadas por coma.</p>`;
+    return;
+  }
+
+  for (let i = 1; i <= limite; i++) {
+    const p1 = prendas[(i - 1) % prendas.length];
+    const p2 = prendas[i % prendas.length];
+    const p3 = prendas[(i + 1) % prendas.length];
+
+    caja.innerHTML += `
+      <div class="p-3 bg-white border border-stone-200 rounded-lg">
+        <p class="font-bold text-stone-800 text-xs uppercase">Outfit #${i} — ${estilo}</p>
+        <p class="text-stone-700 text-sm mt-1">Combina <strong>${p1}</strong> + <strong>${p2}</strong> con <strong>${p3}</strong>.</p>
+      </div>
+    `;
+  }
+});
+
+function responderChatIA() {
+  const pregunta = document.getElementById("chat-pregunta").value.toLowerCase();
+  const cajaResp = document.getElementById("chat-respuesta");
+  cajaResp.classList.remove("hidden");
+
+  if (pregunta.includes("chaqueta") || pregunta.includes("cuero")) {
+    cajaResp.innerHTML = "<strong>ADNesencial IA:</strong> Una chaqueta negra combina perfecto con camiseta blanca básica y pantalón vaquero azul para un look Aesthetic Casual.";
+  } else if (pregunta.includes("oficina") || pregunta.includes("elegante")) {
+    cajaResp.innerHTML = "<strong>ADNesencial IA:</strong> Para Oficina Elegante te recomiendo usar prendas de tonos neutros como blazer estructurado y pantalón sastre.";
+  } else if (pregunta.includes("precio") || pregunta.includes("costo")) {
+    cajaResp.innerHTML = "<strong>ADNesencial IA:</strong> Nuestras prendas y conjuntos esenciales van desde $45 hasta $75 USD. Puedes verlos en el Catálogo.";
+  } else {
+    cajaResp.innerHTML = "<strong>ADNesencial IA:</strong> Te sugiero combinar siempre 1 prenda básica neutra (como camiseta blanca) con 1 prenda protagonista (chaqueta o blazer).";
+  }
+}
