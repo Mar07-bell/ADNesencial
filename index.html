@@ -62,3 +62,19 @@
       </div>
     </div>
   </section>
+
+   <section id="conjuntos" class="py-12 px-4 max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4" data-aos="fade-right">
+      <div>
+        <h2 class="text-3xl font-bold">Catálogo de Prendas y Conjuntos</h2>
+        <p class="text-stone-600 text-sm mt-1">Piezas esenciales seleccionadas para combinar fácilmente.</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button onclick="filtrarCatalogo('Todos')" class="px-3 py-1.5 text-xs font-bold rounded bg-stone-800 text-white">Todos</button>
+        <button onclick="filtrarCatalogo('Aesthetic Casual')" class="px-3 py-1.5 text-xs font-bold rounded bg-white border border-stone-300 text-stone-700">Aesthetic Casual</button>
+        <button onclick="filtrarCatalogo('Oficina Elegante')" class="px-3 py-1.5 text-xs font-bold rounded bg-white border border-stone-300 text-stone-700">Oficina Elegante</button>
+      </div>
+    </div>
+
+    <div id="grid-productos" class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up"></div>
+  </section>
