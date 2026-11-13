@@ -126,3 +126,24 @@ function responderChatIA() {
     cajaResp.innerHTML = "<strong>ADNesencial IA:</strong> Te sugiero combinar siempre 1 prenda básica neutra (como camiseta blanca) con 1 prenda protagonista (chaqueta o blazer).";
   }
 }
+
+document.getElementById("form-contacto").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const prendasInput = document.getElementById("c-prendas").value;
+  const listaPrendas = prendasInput.split(",").map(function(p) { return p.trim(); });
+
+  const nuevoRegistro = {
+    usuario: document.getElementById("c-usuario").value,
+    correo: document.getElementById("c-correo").value,
+    estilo_deseado: document.getElementById("c-estilo").value,
+    limite_combinaciones_diarias: Number(document.getElementById("c-limite").value),
+    prendas_disponibles: listaPrendas
+  };
+
+  usuarios.push(nuevoRegistro);
+  guardarDatos();
+
+  document.getElementById("form-contacto").reset();
+  document.getElementById("alerta-guardado").classList.remove("hidden");
+});
