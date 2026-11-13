@@ -127,3 +127,233 @@ section {
   border: 1px solid #e5e7eb;
   margin-top: 10px;
 }
+
+/* CATÁLOGO */
+#conjuntos > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+#conjuntos h2 {
+  color: rgb(219, 91, 155);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 30px;
+}
+
+#conjuntos button {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+#conjuntos button:first-child {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+#grid-productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card-producto {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+}
+
+.card-producto:hover {
+  transform: translateY(-4px);
+}
+
+.card-producto img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.card-producto > div:first-child > div {
+  padding: 18px;
+}
+
+.card-producto h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin: 8px 0;
+}
+
+.card-producto > div:last-child {
+  padding: 14px 18px;
+  background-color: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* SECCIÓN IA */
+#estilo h2 {
+  color: rgb(202, 87, 83);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+#estilo > div > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+#form-combinador, #estilo > div > div > div {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+/* FORMULARIOS E INPUTS */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 5px;
+  margin-top: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+  font-family: inherit;
+}
+
+#form-combinador button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* CONTACTO */
+#closet h2 {
+  color: rgb(111, 204, 131);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+#form-contacto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+#form-contacto > div:nth-child(5),
+#form-contacto > div:nth-child(6) {
+  grid-column: span 2;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+}
+
+/* PANEL ADMIN (MODAL) */
+.hidden {
+  display: none !important;
+}
+
+#modal-admin {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#modal-admin > div {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 750px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+#modal-admin > div > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+#form-login-admin button {
+  width: 100%;
+  background-color: #1f2937;
+  color: #ffffff;
+  margin-top: 14px;
+}
+
+#form-crud-producto {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 20px 0;
+}
+
+#form-crud-producto button {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+/* RESPONSIVE PARA CELULAR Y TABLET */
+@media (max-width: 768px) {
+  #inicio > div,
+  #grid-productos,
+  #estilo > div > div,
+  #form-contacto,
+  #form-crud-producto {
+    grid-template-columns: 1fr;
+  }
+
+  #form-contacto > div:nth-child(5),
+  #form-contacto > div:nth-child(6) {
+    grid-column: span 1;
+  }
+
+  header nav {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  h1, h2, h3 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+}
