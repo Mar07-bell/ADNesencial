@@ -1,0 +1,64 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADNesencial | Combinación Eficiente de Ropa</title>
+  <script src="https://tailwindcss.com"></script>
+  <link href="https://unpkg.com" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-orange-50/30 text-stone-800">
+
+  <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-stone-200">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#inicio" class="text-2xl font-bold tracking-tight text-stone-900">
+        ADN<span style="color: rgb(202, 87, 83);">esencial</span>
+      </a>
+
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-stone-700">
+        <a href="#inicio" class="hover:text-rose-600">Inicio</a>
+        <a href="#conjuntos" class="hover:text-rose-600">Catálogo</a>
+        <a href="#estilo" class="hover:text-rose-600">IA Combinador</a>
+        <a href="#closet" class="hover:text-rose-600">Contacto</a>
+      </nav>
+
+      <button onclick="abrirAdmin()" class="bg-stone-800 text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-stone-700">
+        Panel Admin
+      </button>
+    </div>
+  </header>
+
+  <section id="inicio" class="py-14 px-4 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-2xl shadow-sm border border-stone-200" data-aos="fade-up">
+      <div>
+        <span class="text-xs font-bold uppercase px-3 py-1 rounded-full bg-amber-100 text-amber-800">
+          Emprendimiento Digital • Armario Cápsula
+        </span>
+        <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4 leading-tight">
+          Combina tu ropa de forma eficiente con ADNesencial
+        </h1>
+        <p class="text-stone-600 mb-6 text-base leading-relaxed">
+          Te ayudamos a sacar el máximo provecho a tus prendas disponibles. Define tu estilo deseado, organiza tu clóset y crea outfits diarios sin estrés.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#estilo" class="px-5 py-2.5 rounded-lg text-white font-bold text-sm" style="background-color: rgb(74, 89, 170);">
+            Combinar Ropa con IA
+          </a>
+          <a href="#conjuntos" class="px-5 py-2.5 rounded-lg border border-stone-300 text-stone-700 font-bold text-sm hover:bg-stone-100">
+            Ver Catálogo
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-stone-100 p-6 rounded-xl border border-stone-200 space-y-3">
+        <h3 class="font-bold text-lg text-stone-800">Nuestro Método Esencial</h3>
+        <p class="text-sm text-stone-600">Con solo 4 prendas básicas puedes lograr múltiples combinaciones:</p>
+        <div class="bg-white p-4 rounded-lg border text-xs space-y-1.5 text-stone-700">
+          <p><strong>Usuario ejemplo:</strong> Sofía Martínez</p>
+          <p><strong>Estilo deseado:</strong> Aesthetic Casual / Oficina Elegante</p>
+          <p><strong>Prendas base:</strong> Pantalón vaquero azul, camiseta blanca básica, chaqueta de cuero negra, zapatillas blancas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
