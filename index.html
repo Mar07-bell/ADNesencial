@@ -206,3 +206,52 @@
   <script src="app.js"></script>
 </body>
 </html>
+  <section id="closet" class="py-12 px-4 max-w-5xl mx-auto">
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-2">Contacto y Registro de Clóset</h2>
+      <p class="text-stone-600 text-sm mb-6">
+        Cuentanos qué estilo te gusta y las prendas que tienes a la mano, nosotros te armamos las mejores combinaciones del día en segundos.
+      </p>
+
+      <form id="form-contacto" class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Nombre completo (usuario) *</label>
+          <input type="text" id="c-usuario" required placeholder="Ej: Sofía Martínez" class="w-full p-2.5 border border-stone-300 rounded-lg text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Correo electrónico *</label>
+          <input type="email" id="c-correo" required placeholder="sofia@correo.com" class="w-full p-2.5 border border-stone-300 rounded-lg text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Estilo deseado *</label>
+          <select id="c-estilo" class="w-full p-2.5 border border-stone-300 rounded-lg text-sm bg-white">
+            <option value="Aesthetic Casual">Aesthetic Casual</option>
+            <option value="Oficina Elegante">Oficina Elegante</option>
+            <option value="Casual Diario">Casual Diario</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Límite de combinaciones diarias (máximo 5) *</label>
+          <input type="number" id="c-limite" value="2" min="1" max="5" required class="w-full p-2.5 border border-stone-300 rounded-lg text-sm">
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-xs font-bold text-stone-700 mb-1">Prendas disponibles o mensaje de solicitud *</label>
+          <textarea id="c-prendas" rows="2" required placeholder="Ej: pantalón vaquero azul, camiseta blanca básica, chaqueta de cuero negra" class="w-full p-2.5 border border-stone-300 rounded-lg text-sm"></textarea>
+        </div>
+
+        <div class="md:col-span-2">
+ <button type="submit" class="px-6 py-2.5 rounded-lg font-bold text-sm text-stone-900" style="background-color: rgb(111, 204, 131);">
+            Registrar Solicitud
+          </button>
+        </div>
+      </form>
+
+      <div id="alerta-guardado" class="hidden mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-sm font-semibold">
+        ¡Solicitud registrada con éxito! Inicia sesión en el Panel Admin para verla.
+      </div>
+    </div>
+  </section>
